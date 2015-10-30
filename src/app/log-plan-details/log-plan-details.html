@@ -1,0 +1,47 @@
+<div class="container">
+
+  <div ng-include="'app/components/navbar/navbar.html'"></div>
+
+  <div class="title">
+    <div class="pull-right">
+      <a href="#/" class="btn btn-default">Back</a>
+    </div>
+    <h1>{{plan.name}}</h1>
+    <p>{{plan.description}}</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pull-right">
+        <button data-ng-click="export()" class="btn btn-info">Export <i class="glyphicon glyphicon-download-alt"></i></button>
+      </div>
+      <h2>Readings</h2>
+      <div>
+        <table class="table">
+          <thead>
+            <th>Idx</th>
+            <th>Created On</th>
+            <th>Length</th>
+            <th> ... </th>
+          </thead>
+          <tbody>
+            <tr data-ng-repeat="r in plan.readings">
+              <td>{{$index + 1}}</td>
+              <td>{{r.createdOn | date:'mediumTime'}}</td>
+              <td>{{r.codes.length}}</td>
+              <td class="text-right">
+                <a href="#/log-plan-scan/{{plan.id}}/{{$index}}"><i class="glyphicon glyphicon-log-in"></i></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a data-ng-click="removeReading($index)" href="#" onclick="return false;" style="color:red"><i class="glyphicon glyphicon-remove"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="text-right">
+        <button data-ng-click="addReading()" class="btn btn-default">Create Reading</button>
+      </div>
+      <a href="#" onclick="return false;" data-ng-click="dup()">dup</a>
+    </div>
+  </div>
+  <div ng-include="'app/components/footer.html'"></div>
+</div>

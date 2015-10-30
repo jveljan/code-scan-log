@@ -39,9 +39,5 @@
       </tr>
     </tbody>
   </table>
-  <div>
-    <a href="#" onclick="return false;" data-ng-click="json_visible = !json_visible">{{json_visble ? 'Hide' : 'Show'}} Json Data</a>
-    <pre data-ng-show="json_visible">{{logPlans|json}}</pre>
-  </div>
   <div ng-include="'app/components/footer.html'"></div>
 </div>

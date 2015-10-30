@@ -41,7 +41,7 @@ angular.module('codeScanLog')
     $scope.export = function() {
       var data = $scope.plan.readings.map(function(r) {
         return r.codes.map(function(c) { return c.timestamp + ', ' + c.code; }).join('\n');
-      }).join('\n\n');
+      }).join('\n');
       download($scope.plan.name, data);
     }
 
